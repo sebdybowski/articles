@@ -1,5 +1,10 @@
 # Schibsted frontend task app
 
+## Assignee notes:
+TO:DO
+
+## Intro
+
 This is a very basic npm project with default webpack setup.
 
 You should use this project as a base for your solution.
