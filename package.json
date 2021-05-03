@@ -9,6 +9,10 @@
     "build": "webpack --mode=production",
     "start:server": "node server.js"
   },
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions"
+  ],
   "author": "STP",
   "license": "UNLICENSED",
   "devDependencies": {
@@ -23,6 +27,7 @@
     "@types/react-dom": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
+    "autoprefixer": "^10.2.5",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
@@ -39,6 +44,9 @@
     "html-webpack-plugin": "^5.3.1",
     "jest": "^26.6.3",
     "jest-css-modules": "^2.1.0",
+    "postcss-loader": "^5.2.0",
+    "postcss-nested": "^5.0.5",
+    "postcss-normalize": "^10.0.0",
     "prettier": "^2.2.1",
     "sass": "^1.32.12",
     "sass-loader": "^11.0.1",
