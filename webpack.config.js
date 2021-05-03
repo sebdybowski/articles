@@ -32,7 +32,10 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             inject: 'body',
-            template: '<div id="root"/>'
+            template: './root.html'
         })
-    ]
+    ],
+    resolve: {
+        extensions: [".ts", ".tsx", ".js", ".jsx"]
+    },
 };
