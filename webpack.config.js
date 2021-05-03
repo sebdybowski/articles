@@ -38,4 +38,7 @@ module.exports = {
     resolve: {
         extensions: [".ts", ".tsx", ".js", ".jsx"]
     },
+    optimization: {
+        usedExports: true,
+    },
 };
