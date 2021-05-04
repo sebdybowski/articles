@@ -22,9 +22,11 @@ const Article: FC<ArticleProps> = ({ title, date, preamble, image }) => {
 					className="Article__image"
 				/>
 			</Suspense>
-			<Title level={1}>{title}</Title>
-			<span>{date}</span>
-			<p>{preamble}</p>
+			<div className="Article__meta">
+				<Title level={1}>{title}</Title>
+				<span>{date}</span>
+				<p>{preamble}</p>
+			</div>
 		</div>
 	);
 };
