@@ -1,0 +1,14 @@
+.CheckboxList {
+  background-color: #fff;
+  padding: 1rem;
+
+  &__fieldset {
+    border: none;
+    padding: 0;
+
+    &__legend {
+      padding: 0;
+      font-size: 1.5rem
+    }
+  }
+}

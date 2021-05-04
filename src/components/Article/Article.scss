@@ -1,0 +1,35 @@
+.Article {
+  background-color: #fff;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: row;
+
+  &__image {
+    width: 280px;
+    height: 200px;
+
+    &__preloader {
+      background: #c6c6c6;
+      animation: blink 1s linear infinite;
+      width: 280px;
+      height: 200px;
+      font-size: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}

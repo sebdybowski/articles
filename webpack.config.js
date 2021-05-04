@@ -29,6 +29,7 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     port: 3000,
+    hot: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -37,7 +38,7 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.scss', '.html'],
   },
   optimization: {
     usedExports: true,
