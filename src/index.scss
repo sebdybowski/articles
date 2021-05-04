@@ -1,11 +1,12 @@
 @import "~sanitize.css";
+@import "variables";
 
 body, html {
   font-size: 16px;
 }
 
 body {
-  background: #e6e6e6;
+  background: $gray-light;
 }
 
 * {

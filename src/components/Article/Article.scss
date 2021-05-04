@@ -1,6 +1,8 @@
+@import "/src/variables";
+
 .Article {
-  background-color: #fff;
-  margin: 0.5rem 0;
+  background-color: $background-light;
+  margin: $space-sm 0;
   display: flex;
   flex-direction: row;
 
@@ -18,11 +20,11 @@
     }
 
     &__preloader {
-      background: #c6c6c6;
+      background: $gray-dark;
       animation: blink 1s linear infinite;
       width: 280px;
       height: 200px;
-      font-size: 2rem;
+      font-size: $space-lg;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -37,14 +39,15 @@
   &__meta {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: $space-sm;
     width: 100%;
+    position: relative;
 
     &__date {
-      background: #c6c6c6;
-      padding: 0.5rem;
+      background: $gray-dark;
+      padding: $space-sm;
       position: absolute;
-      right: 2rem;
+      right: -$space-sm;
     }
 
     &__preamble {
@@ -53,7 +56,7 @@
 
     & > .Title {
       margin-top: 0;
-      margin-bottom: 1rem;
+      margin-bottom: $space-sm;
       font-size: 1.5rem;
       width: calc(100% - 90px);
     }

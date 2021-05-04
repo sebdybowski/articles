@@ -1,8 +1,13 @@
+@import "src/variables";
+
 .DateSorter {
+  display: flex;
+  flex-direction: row-reverse;
+
   &__button {
-    padding: 0.5rem;
-    background: #ffffff;
-    border: 1px solid #e6e6e6;
+    padding: $space-sm;
+    background: $background-light;
+    border: $border-style;
 
     &:hover {
       cursor: pointer;
@@ -11,7 +16,7 @@
 
   &__icon {
     display: inline;
-    padding: 0.5rem;
+    padding: $space-sm;
     position: relative;
     top: -2px;
   }
