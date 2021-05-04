@@ -55,14 +55,17 @@
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0",
     "ts-loader": "^9.1.1",
+    "ts-node": "^9.1.1",
     "webpack": "^5.36.2",
     "webpack-cli": "^4.6.0",
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
+    "dayjs": "^1.10.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-image": "^4.0.3",
     "sanitize.css": "^12.0.1",
     "typescript": "^4.2.4"
   }

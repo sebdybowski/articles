@@ -1,1 +1,8 @@
-.Checkbox {}
+.Checkbox {
+  &__label {
+    text-transform: capitalize;
+  }
+  &__input {
+    margin-right: 8px;
+  }
+}
