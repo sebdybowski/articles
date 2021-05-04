@@ -15,6 +15,7 @@ const DateSorter: React.FC<DateSorterProps> = ({
 }) => (
 	<div className="DateSorter" data-testid="DateSorter">
 		<button
+			className="DateSorter__button"
 			type="button"
 			value={sortType}
 			onClick={() =>
@@ -25,8 +26,10 @@ const DateSorter: React.FC<DateSorterProps> = ({
 				)
 			}
 		>
-			{children}
-			{sortType === SORT_TYPES.ASCENDING ? <UpOutlined /> : <DownOutlined />}
+			{children}: <strong>{sortType}</strong>
+			<div className="DateSorter__icon">
+				{sortType === SORT_TYPES.ASCENDING ? <UpOutlined /> : <DownOutlined />}
+			</div>
 		</button>
 	</div>
 );

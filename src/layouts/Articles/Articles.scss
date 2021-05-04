@@ -1,3 +1,11 @@
+@import "src/variables";
+
 .Articles {
-  border-left: 1px solid #c6c6c6;
+  border-left: $border-style;
+  width: 100%;
+
+  @media screen and (max-width: 1023px) {
+    border-left: none;
+    border-top: $border-style;
+  }
 }

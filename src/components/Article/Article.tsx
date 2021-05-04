@@ -24,8 +24,8 @@ const Article: FC<ArticleProps> = ({ title, date, preamble, image }) => {
 			</Suspense>
 			<div className="Article__meta">
 				<Title level={1}>{title}</Title>
-				<span>{date}</span>
-				<p>{preamble}</p>
+				<div className="Article__meta__date">{date}</div>
+				<p className="Article__meta__preamble">{preamble}</p>
 			</div>
 		</div>
 	);

@@ -1,14 +1,29 @@
+@import "src/variables";
+
 .Layout {
-  padding: 2rem;
+  padding: $space-lg;
   display: flex;
   flex-direction: row;
+
+  @media screen and (max-width: 1023px) {
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 1920px) {
+    width: 80vw;
+    margin: 0 auto;
+  }
 
   & > :nth-child(1) {
     width: calc(100% / 3);
     min-width: 200px;
+
+    @media screen and (max-width: 1023px) {
+      width: 100%;
+    }
   }
 
   & > * {
-    padding: 1rem;
+    padding: $space-sm;
   }
 }

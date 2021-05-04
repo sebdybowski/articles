@@ -1,30 +1,65 @@
+@import "/src/variables";
+
 .Article {
-  background-color: #fff;
-  padding: 1rem;
-  margin: 0.5rem 0;
+  background-color: $background-light;
+  margin: $space-sm 0;
   display: flex;
   flex-direction: row;
+
+  @media screen and (max-width: 849px) {
+    flex-direction: column;
+  }
 
   &__image {
     width: 280px;
     height: 200px;
 
+    @media screen and (max-width: 849px) {
+      width: 100%;
+      height: auto;
+    }
+
     &__preloader {
-      background: #c6c6c6;
+      background: $gray-dark;
       animation: blink 1s linear infinite;
       width: 280px;
       height: 200px;
-      font-size: 2rem;
+      font-size: $space-lg;
       display: flex;
       justify-content: center;
       align-items: center;
+
+      @media screen and (max-width: 849px) {
+        width: 100%;
+        height: 300px;
+      }
     }
   }
 
   &__meta {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: $space-sm;
+    width: 100%;
+    position: relative;
+
+    &__date {
+      background: $gray-dark;
+      padding: $space-sm;
+      position: absolute;
+      right: -$space-sm;
+    }
+
+    &__preamble {
+      margin: 0;
+    }
+
+    & > .Title {
+      margin-top: 0;
+      margin-bottom: $space-sm;
+      font-size: 1.5rem;
+      width: calc(100% - 90px);
+    }
   }
 }
 

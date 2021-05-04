@@ -1,8 +1,23 @@
+@import "src/variables";
+
 .DateSorter {
-  &--ascending {
-    content: "";
+  display: flex;
+  flex-direction: row-reverse;
+
+  &__button {
+    padding: $space-sm;
+    background: $background-light;
+    border: $border-style;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
-  &--descending {
-    content: "";
+
+  &__icon {
+    display: inline;
+    padding: $space-sm;
+    position: relative;
+    top: -2px;
   }
 }
