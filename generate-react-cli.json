@@ -10,13 +10,13 @@
       "withTest": true,
       "withStory": false,
       "withLazy": false
+    },
+    "layout": {
+      "path": "src/layouts",
+      "withStyle": true,
+      "withTest": true,
+      "withStory": false,
+      "withLazy": false
     }
-  },
-  "layout": {
-    "path": "src/layouts",
-    "withStyle": true,
-    "withTest": true,
-    "withStory": false,
-    "withLazy": false
   }
 }

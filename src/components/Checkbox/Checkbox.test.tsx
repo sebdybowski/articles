@@ -5,8 +5,8 @@ import Checkbox from './Checkbox';
 
 describe('<Checkbox />', () => {
   test('it should mount', () => {
-    render(<Checkbox />);
-    
+    render(<Checkbox name="Check 1" checked={true} />);
+
     const checkbox = screen.getByTestId('Checkbox');
 
     expect(checkbox).toBeInTheDocument();

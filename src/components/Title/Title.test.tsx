@@ -5,8 +5,8 @@ import Title from './Title';
 
 describe('<Title />', () => {
   test('it should mount', () => {
-    render(<Title />);
-    
+    render(<Title level={1}>Heading!</Title>);
+
     const title = screen.getByTestId('Title');
 
     expect(title).toBeInTheDocument();

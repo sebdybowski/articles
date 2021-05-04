@@ -5,8 +5,10 @@ import CheckboxList from './CheckboxList';
 
 describe('<CheckboxList />', () => {
   test('it should mount', () => {
-    render(<CheckboxList />);
-    
+    render(
+      <CheckboxList legend="CheckList1" options={['1', '2']} values={['1']} />
+    );
+
     const checkboxList = screen.getByTestId('CheckboxList');
 
     expect(checkboxList).toBeInTheDocument();
