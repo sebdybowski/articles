@@ -1,8 +1,18 @@
 .DateSorter {
-  &--ascending {
-    content: "";
+  &__button {
+    padding: 0.5rem;
+    background: #ffffff;
+    border: 1px solid #e6e6e6;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
-  &--descending {
-    content: "";
+
+  &__icon {
+    display: inline;
+    padding: 0.5rem;
+    position: relative;
+    top: -2px;
   }
 }

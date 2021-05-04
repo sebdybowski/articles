@@ -1,3 +1,10 @@
+$border-style: 1px solid #c6c6c6;
+
 .Articles {
-  border-left: 1px solid #c6c6c6;
+  border-left: $border-style;
+
+  @media screen and (max-width: 1023px) {
+    border-left: none;
+    border-top: $border-style;
+  }
 }

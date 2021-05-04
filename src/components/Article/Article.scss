@@ -1,13 +1,21 @@
 .Article {
   background-color: #fff;
-  padding: 1rem;
   margin: 0.5rem 0;
   display: flex;
   flex-direction: row;
 
+  @media screen and (max-width: 849px) {
+    flex-direction: column;
+  }
+
   &__image {
     width: 280px;
     height: 200px;
+
+    @media screen and (max-width: 849px) {
+      width: 100%;
+      height: auto;
+    }
 
     &__preloader {
       background: #c6c6c6;
@@ -18,6 +26,11 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      @media screen and (max-width: 849px) {
+        width: 100%;
+        height: 300px;
+      }
     }
   }
 
@@ -25,6 +38,25 @@
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    width: 100%;
+
+    &__date {
+      background: #c6c6c6;
+      padding: 0.5rem;
+      position: absolute;
+      right: 2rem;
+    }
+
+    &__preamble {
+      margin: 0;
+    }
+
+    & > .Title {
+      margin-top: 0;
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      width: calc(100% - 90px);
+    }
   }
 }
 
