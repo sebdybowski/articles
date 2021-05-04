@@ -4,7 +4,8 @@
   "description": "frontend assignment task js",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "dev": "webpack serve --mode=development",
     "build": "webpack --mode=production",
     "start:server": "node server.js"

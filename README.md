@@ -16,7 +16,7 @@ In case you need some assistance take a look at official webpack docs:
 
 Eventually this application will request live data from a real API.
 
-You can find the full description of your assignment in [ASSIGNMENT.md](ASSIGNMENT.md)
+You can find the full description of your assignment in [ASSIGNMENT.md](mockups/ASSIGNMENT.md)
 
 ## API Documentation
 Api server can be found in `server.js` file. You should not modify this file, only use it.
