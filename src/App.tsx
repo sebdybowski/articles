@@ -11,43 +11,76 @@ import API_URLS from './constants/apiUrls';
 import sortArticlesByDate from './utils/sortArticlesByDate';
 import parseMonth from './utils/parseMonth';
 import Article from './components/Article/Article';
+import Title from './components/Title/Title';
+import getDataSourceFromUrl from './utils/getDataSourceFromUrl';
 
 const App: FC = () => {
 	const [sortType, setSortType] = useState(SORT_TYPES.DESCENDING);
-	const [dataTypes, setDataTypes] = useState([DATA_TYPES.FASHION]);
-	const [fashionArticles, setFashionArticles] = useState([]);
-	const [sportsArticles, setSportsArticles] = useState([]);
+	const [dataTypes, setDataTypes] = useState([
+		DATA_TYPES.FASHION,
+		DATA_TYPES.SPORTS,
+	]);
+	const [loading, setLoading] = useState(true);
+	const [error, setError] = useState<string | undefined>(undefined);
+	const [articles, setArticles] = useState<Array<any>>([]);
 
 	useEffect(() => {
-		(async function () {
-			try {
-				const fashionResponse = await fetch(API_URLS.FASHION);
-				const sportsResponse = await fetch(API_URLS.SPORTS);
+		const endpoints = [];
 
-				if (dataTypes.includes(DATA_TYPES.FASHION)) {
-					const { articles } = (await fashionResponse.json()) || [];
+		if (dataTypes.includes(DATA_TYPES.FASHION))
+			endpoints.push(fetch(API_URLS.FASHION));
+		if (dataTypes.includes(DATA_TYPES.SPORTS))
+			endpoints.push(fetch(API_URLS.SPORTS));
 
-					if (articles.legth !== 0) {
-						setFashionArticles(articles);
+		Promise.all(endpoints)
+			.then(async (responses) => {
+				if (responses.length === 1) {
+					const { status, url } = responses[0];
+					const { articles: newArticles = [] } = await responses[0].json();
+					const dataSource = getDataSourceFromUrl(url);
+
+					if (status !== 200) {
+						setError(dataSource);
+						throw new Error(`${status}: ${dataSource}`);
+					} else if (newArticles && newArticles.length !== 0) {
+						setArticles(newArticles);
+					}
+				} else if (responses.length === 2) {
+					const [fashion, sports] = responses;
+					const { status: fashionStatus, url: fashionUrl } = fashion;
+					const { status: sportsStatus, url: sportsUrl } = sports;
+
+					const { articles: articlesFashion = [] } = await fashion.json();
+					const { articles: articlesSports = [] } = await sports.json();
+
+					const allArticles: Array<any> = [
+						...articlesFashion,
+						...articlesSports,
+					];
+
+					if (fashionStatus !== 200 || sportsStatus !== 200) {
+						const dataSources = [];
+						if (fashionStatus !== 200) {
+							dataSources.push(getDataSourceFromUrl(fashionUrl));
+						}
+						if (sportsStatus !== 200) {
+							dataSources.push(getDataSourceFromUrl(sportsUrl));
+						}
+						setError(`${dataSources.concat()}`);
+						console.error(`${status}: ${dataSources.concat()}`);
+					}
+					if (allArticles && allArticles.length !== 0) {
+						setArticles(allArticles);
 					}
 				}
+			})
+			.finally(() => {
+				setLoading(false);
+			});
+	}, [dataTypes, setArticles, setLoading]);
 
-				if (dataTypes.includes(DATA_TYPES.SPORTS)) {
-					const { articles } = (await sportsResponse.json()) || [];
+	console.log('state', { articles });
 
-					if (articles.length !== 0) {
-						setSportsArticles(articles);
-					}
-				}
-			} catch (error) {
-				console.log(error);
-			} finally {
-				console.log('finally');
-			}
-		})();
-	}, [dataTypes]);
-
-	console.log(fashionArticles, sportsArticles);
 	return (
 		<main>
 			<Layout>
@@ -63,9 +96,29 @@ const App: FC = () => {
 					<DateSorter sortType={sortType} onClick={setSortType}>
 						Sort by date
 					</DateSorter>
-					{[...fashionArticles, ...sportsArticles]
+					{loading && <Title level={1}>Loading...</Title>}
+					{error && (
+						<div>
+							<p>
+								Oops! This is unexpected system failure. Some part of articles
+								about:
+							</p>
+							<strong>{error}</strong>
+							<p>
+								was not loaded. To fix that issue, please try to refresh the
+								page. If this is not helpful, please contact our technical
+								support. Apologies for any inconvenience.
+							</p>
+						</div>
+					)}
+					{articles
 						.sort((a, b) => sortArticlesByDate(a, b, sortType))
-						.filter(({ category }) => dataTypes.includes(category))
+						.filter(({ category }) =>
+							dataTypes.includes(
+								// category
+								category === 'sport' ? DATA_TYPES.SPORTS : category
+							)
+						)
 						.map(({ id, title, preamble, date, image }) => (
 							<Article
 								key={id}
