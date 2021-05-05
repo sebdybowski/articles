@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import DateSorter from './DateSorter';
 import SORT_TYPES from '../../constants/sortTypes';
@@ -13,6 +13,8 @@ describe('<DateSorter />', () => {
 		);
 
 		const dateSorter = screen.getByTestId('DateSorter');
+		const button = within(dateSorter).getByTestId('button');
+		fireEvent(button, new MouseEvent('click', { bubbles: true }));
 
 		expect(dateSorter).toBeInTheDocument();
 	});

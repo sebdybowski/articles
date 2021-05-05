@@ -15,10 +15,11 @@ const DateSorter: React.FC<DateSorterProps> = ({
 }) => (
 	<div className="DateSorter" data-testid="DateSorter">
 		<button
+			data-test-if="button"
 			className="DateSorter__button"
 			type="button"
 			value={sortType}
-			onClick={() =>
+			onClick={(): void =>
 				onClick(
 					sortType === SORT_TYPES.ASCENDING
 						? SORT_TYPES.DESCENDING
