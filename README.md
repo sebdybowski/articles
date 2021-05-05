@@ -1,7 +1,49 @@
 # Schibsted frontend task app
 
 ## Assignee notes:
-TO:DO
+### List of completed initiatives:
+https://github.com/sebdybowski/articles/issues?q=is%3Aissue+is%3Aclosed
+
+### List of merged PRs:
+https://github.com/sebdybowski/articles/pulls?q=is%3Apr+is%3Aclosed
+
+### List of ideas to implement in order to improve solution:
+https://github.com/sebdybowski/articles/issues
+
+### Brief description
+I was implementing that project in few phases:
+1. Setting up libraries and all tool, including: Typescript, Webpack, Eslint, Prettier, and many more.
+2. Implementing basic versions components.
+3. Implementing application logic.
+4. Implementing necessary styles.
+5. Small tweaking and bugfixes.
+6.* Steps 2-5 performed along with tests.
+   
+### Results:
+Code coverage:
+- `99.55%` **Statements** 220/221
+- `93.33%` **Branches** 14/15
+- `90.91%` **Functions** 10/11
+- `99.55%` **Lines** 220/221
+
+99.55% Statements 220/221
+88.24% Branches 15/17
+100% Functions 11/11
+99.55% Lines 220/221
+
+Bundle size: `200 KB` (tree shaking enabled)
+
+Browser compatibility:
+```json
+{
+  "browserslist": [
+    "last 2 Chrome versions",
+    "last 2 Firefox versions"
+  ]
+}
+```
+
+---
 
 ## Intro
 

@@ -15,7 +15,7 @@ const DateSorter: React.FC<DateSorterProps> = ({
 }) => (
 	<div className="DateSorter" data-testid="DateSorter">
 		<button
-			data-test-if="button"
+			data-testid="button"
 			className="DateSorter__button"
 			type="button"
 			value={sortType}

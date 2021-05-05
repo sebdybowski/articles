@@ -18,4 +18,18 @@ describe('<DateSorter />', () => {
 
 		expect(dateSorter).toBeInTheDocument();
 	});
+
+	test('it should mount with sort ascending', () => {
+		render(
+			<DateSorter sortType={SORT_TYPES.ASCENDING} onClick={jest.fn()}>
+				Sorter
+			</DateSorter>
+		);
+
+		const dateSorter = screen.getByTestId('DateSorter');
+		const button = within(dateSorter).getByTestId('button');
+		fireEvent(button, new MouseEvent('click', { bubbles: true }));
+
+		expect(dateSorter).toBeInTheDocument();
+	});
 });
