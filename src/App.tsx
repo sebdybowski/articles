@@ -60,12 +60,14 @@ const App: FC = () => {
 
 					if (fashionStatus !== 200 || sportsStatus !== 200) {
 						const dataSources = [];
-						if (fashionStatus !== 200)
+						if (fashionStatus !== 200) {
 							dataSources.push(getDataSourceFromUrl(fashionUrl));
-						if (sportsStatus !== 200)
+						}
+						if (sportsStatus !== 200) {
 							dataSources.push(getDataSourceFromUrl(sportsUrl));
-						setError(`${dataSources.concat(',')}`);
-						throw new Error(`${status}: ${dataSources.concat(',')}`);
+						}
+						setError(`${dataSources.concat()}`);
+						console.error(`${status}: ${dataSources.concat()}`);
 					}
 					if (allArticles && allArticles.length !== 0) {
 						setArticles(allArticles);

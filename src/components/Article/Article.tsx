@@ -14,7 +14,7 @@ const Article: FC<ArticleProps> = ({ title, date, preamble, image }) => {
 	return (
 		<div className="Article" data-testid="Article">
 			{!image || image.length === 0 ? (
-				<div>Image couldn't be displayed</div>
+				<div>{`Image for article: ${title}`} is missing.</div>
 			) : (
 				<Suspense
 					fallback={<div className="Article__image__preloader">Loading...</div>}
