@@ -18,4 +18,11 @@ describe('<Article />', () => {
 
 		expect(article).toBeInTheDocument();
 	});
+	test('it should mount without img', () => {
+		render(<Article date="11 Feb 2021" preamble="Preamble" title="Title" />);
+
+		const article = screen.getByTestId('Article');
+
+		expect(article).toBeInTheDocument();
+	});
 });
