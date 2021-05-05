@@ -4,11 +4,11 @@ import '@testing-library/jest-dom/extend-expect';
 import Image from './Image';
 
 describe('<Image />', () => {
-  test('it should mount', () => {
-    render(<Image />);
-    
-    const image = screen.getByTestId('Image');
+	test('it should mount', () => {
+		render(<Image alt="alt" url="./url" />);
 
-    expect(image).toBeInTheDocument();
-  });
+		const image = screen.getByTestId('Image');
+
+		expect(image).toBeInTheDocument();
+	});
 });
