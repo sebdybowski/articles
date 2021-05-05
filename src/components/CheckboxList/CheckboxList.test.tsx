@@ -10,7 +10,7 @@ describe('<CheckboxList />', () => {
 				legend="CheckList1"
 				options={['1', '2']}
 				values={['1']}
-				onChange={jest.fn()}
+				onSelection={jest.fn()}
 			/>
 		);
 

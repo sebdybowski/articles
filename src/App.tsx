@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { ChangeEventHandler, FC, useEffect, useState } from 'react';
 import Day from 'dayjs';
 import FilterControls from './layouts/FilterControls/FilterControls';
 import Layout from './layouts/Layout/Layout';
@@ -16,10 +16,7 @@ import getDataSourceFromUrl from './utils/getDataSourceFromUrl';
 
 const App: FC = () => {
 	const [sortType, setSortType] = useState(SORT_TYPES.DESCENDING);
-	const [dataTypes, setDataTypes] = useState([
-		DATA_TYPES.FASHION,
-		DATA_TYPES.SPORTS,
-	]);
+	const [dataTypes, setDataTypes] = useState([DATA_TYPES.FASHION]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | undefined>(undefined);
 	const [articles, setArticles] = useState<Array<any>>([]);
@@ -77,9 +74,19 @@ const App: FC = () => {
 			.finally(() => {
 				setLoading(false);
 			});
-	}, [dataTypes, setArticles, setLoading]);
+	}, [dataTypes, error, setArticles, setLoading, setError]);
 
-	console.log('state', { articles });
+	const onCategoryChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+		const { value } = event.currentTarget;
+		if (error && error.length !== 0) {
+			setError(undefined);
+		}
+		if (dataTypes.includes(value)) {
+			setDataTypes([...dataTypes.filter((type) => type !== value)]);
+		} else {
+			setDataTypes([...dataTypes, value]);
+		}
+	};
 
 	return (
 		<main>
@@ -87,9 +94,9 @@ const App: FC = () => {
 				<FilterControls>
 					<CheckboxList
 						options={Object.values(DATA_TYPES)}
-						values={[DATA_TYPES.FASHION]}
+						values={dataTypes}
 						legend="Data sources"
-						onChange={setDataTypes}
+						onSelection={onCategoryChange}
 					/>
 				</FilterControls>
 				<Articles>
