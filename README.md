@@ -21,15 +21,12 @@ I was implementing that project in few phases:
    
 ### Results:
 Code coverage:
-- `99.55%` **Statements** 220/221
-- `93.33%` **Branches** 14/15
-- `90.91%` **Functions** 10/11
-- `99.55%` **Lines** 220/221
+- `100%` **Statements** 221/221
+- `100%` **Branches** 19/19
+- `100%` **Functions** 11/11
+- `100%` **Lines** 221/221
 
-99.55% Statements 220/221
-88.24% Branches 15/17
-100% Functions 11/11
-99.55% Lines 220/221
+Full coverage! Yay! :)
 
 Bundle size: `200 KB` (tree shaking enabled)
 
